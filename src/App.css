@@ -1,0 +1,26 @@
+#correct {
+  color: lightgrey;
+  white-space: pre-wrap;
+  text-decoration: underline;
+}
+
+#incorrect {
+  color:red;
+  white-space: pre-wrap;
+}
+
+#passage {
+  white-space: pre-wrap;
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2px;
+}
+
+.nav-tabs > .active {
+  background-color: #00bc8c;
+}
