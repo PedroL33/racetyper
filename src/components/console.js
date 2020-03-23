@@ -28,8 +28,6 @@ const Console = () => {
     useEffect(() => {
         if(playing) {
             dispatch(actions.reset())
-        }else {
-            dispatch(actions.initializeEnd());
         }
     }, [playing])
 
@@ -44,15 +42,14 @@ const Console = () => {
 
     function handleKeyPress(e) {
         var compare = passage.split("")[0]
+        console.log(end);
         if(e.key.match(/^[0-9a-zA-Z ,'.!@#$%^&*()?';":-]+$/) && incorrect.length < 5 && compare && e.key !== 'Enter') {
+            dispatch(actions.initializeEnd())
             if(e.key === compare && incorrect.length===0) {
                 dispatch(actions.addCorrect(compare))
                 if(passage.length===1) {
-                    dispatch(actions.togglePlaying())
                     dispatch(actions.initializeEnd())
-                    const wpm = Math.round((length/5)/((end-start)/1000) * 60)
-                    const accuracy = Math.round(((length-mistakes)/length)*100)
-                    dispatch(postScores(wpm, accuracy));
+                    dispatch(actions.togglePlaying())
                 }
             }else {
                 if(incorrect.length === 0) {
@@ -61,7 +58,6 @@ const Console = () => {
                 inputRef.current.classList.add("bg-danger")
                 dispatch(actions.addIncorrect(compare));
             }
-            dispatch(actions.initializeEnd())
             dispatch(actions.add(e.key));
             dispatch(actions.removePassage())
         }

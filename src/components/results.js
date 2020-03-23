@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleActive, togglePlaying, choosePassage, resetCorrect, resetIncorrect, resetCountdown, resetMistakes } from '../actions/index';
+import postScores from '../apiCalls/postScores';
 import getScores from '../apiCalls/getScores';
 import getAllScores from '../apiCalls/getAllScores';
 
@@ -15,6 +16,12 @@ const Results = () => {
     const passages = useSelector(state => state.passages)
     const dispatch = useDispatch()
 
+    useEffect(()=> {
+        const wpm = Math.round((length/5)/((end-start)/1000) * 60)
+        const accuracy = Math.round(((length-mistakes)/length)*100)
+        dispatch(postScores(wpm, accuracy));
+    }, [])
+
     function handleClick(e, overview) {
         e.preventDefault()
         dispatch(getScores())
@@ -25,11 +32,7 @@ const Results = () => {
         dispatch(resetIncorrect())
         dispatch(resetCountdown())
         dispatch(resetMistakes())
-        if(overview) {
-            dispatch(toggleActive())
-        }else {
-            dispatch(togglePlaying())
-        }
+        overview ? dispatch(toggleActive()) : dispatch(togglePlaying())
     }
 
     return (

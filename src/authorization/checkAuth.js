@@ -7,7 +7,6 @@ export default function checkAuth() {
     }
     try {
         const decoded = decode(token);
-        console.log(decoded)
         if(decoded.exp < Date.now()/1000) {
             return false;
         }
