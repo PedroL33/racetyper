@@ -32,7 +32,7 @@ export default function ProfileTab() {
             <div className="row">
                 <ul className="list-group list-group-flush col">
                     <li className="list-group-item">
-                        Total games played: <div className="float-right">{scores.payload && scores.payload.length ? scores["payload"].length : "No data..."}</div>
+                        Games played: <div className="float-right">{scores.payload && scores.payload.length ? scores["payload"].length : "No data..."}</div>
                     </li>
                     <li className="list-group-item">
                         Average Speed: <div className="float-right">{scores.payload && scores.payload.length ? avgWPM : "No data..."}</div>

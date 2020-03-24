@@ -37,12 +37,12 @@ const Results = () => {
 
     return (
         <div className="container mt-5">
-            <animated.div style={drop} className="col-md-6 mx-auto">
+            <animated.div style={drop} className="col-md-12 mx-auto">
                 <h4>Speed: {Math.round((length/5)/((end-start)/1000) * 60)} WPM</h4> 
                 <h4>Accuracy: {Math.round(((length-mistakes)/length)*100)}%</h4>
-                <div className="container mt-5">
+                <div className="container col-sm-12 mt-5">
                     <button onClick={(e) => {handleClick(e, true)}} className="btn btn-outline-secondary text-white form-control">
-                        Back to overview.
+                        Overview.
                     </button>
                     <button onClick={e => handleClick(e, false)} className="btn btn-outline-primary form-control">New Passage</button>
                 </div>
