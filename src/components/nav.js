@@ -1,11 +1,25 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
+import { togglePlaying, toggleActive, choosePassage, resetCorrect, resetIncorrect, resetCountdown, resetMistakes } from '../actions/index';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Nav(props) {
-    const history = useHistory()
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const isActive = useSelector(state => state.isActive);
+    const isPlaying = useSelector(state => state.isPlaying);
+    const passages = useSelector(state => state.passages);
 
     function logout() {
         localStorage.removeItem('token')
+        var index = Math.floor(Math.random() * 723)
+        dispatch(choosePassage(passages[index].text))
+        dispatch(resetCorrect())
+        dispatch(resetIncorrect())
+        dispatch(resetCountdown())
+        dispatch(resetMistakes())
+        isActive && dispatch(toggleActive());
+        isPlaying && dispatch(togglePlaying())
         history.push('/');
     }
 

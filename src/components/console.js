@@ -5,7 +5,6 @@ import Display from './display.js'
 import Countdown from './countdown.js'
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../actions/index';
-import postScores from '../apiCalls/postScores';
 
 const Console = () => {
 
@@ -18,10 +17,7 @@ const Console = () => {
     const incorrect = useSelector(state => state.incorrect);
     const passage = useSelector(state => state.passage)
     const playing = useSelector(state => state.isPlaying);
-    const mistakes = useSelector(state => state.mistakes);
-    const start = useSelector(state => state.start);
     const end = useSelector(state => state.end);
-    const length = useSelector(state => state.length);
 
     const props = useSpring({opacity: 1, from: {opacity: 0}})
 

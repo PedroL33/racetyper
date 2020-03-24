@@ -5,6 +5,7 @@ import { toggleActive, togglePlaying, choosePassage, resetCorrect, resetIncorrec
 import postScores from '../apiCalls/postScores';
 import getScores from '../apiCalls/getScores';
 import getAllScores from '../apiCalls/getAllScores';
+import checkAuth from '../authorization/checkAuth';
 
 const Results = () => {
 
@@ -19,13 +20,15 @@ const Results = () => {
     useEffect(()=> {
         const wpm = Math.round((length/5)/((end-start)/1000) * 60)
         const accuracy = Math.round(((length-mistakes)/length)*100)
-        dispatch(postScores(wpm, accuracy));
+        checkAuth() && dispatch(postScores(wpm, accuracy));
     }, [])
 
     function handleClick(e, overview) {
         e.preventDefault()
-        dispatch(getScores())
-        dispatch(getAllScores())
+        if(checkAuth()) {
+            dispatch(getScores())
+            dispatch(getAllScores())
+        }
         var index = Math.floor(Math.random() * 723)
         dispatch(choosePassage(passages[index].text))
         dispatch(resetCorrect())
@@ -41,9 +44,7 @@ const Results = () => {
                 <h4>Speed: {Math.round((length/5)/((end-start)/1000) * 60)} WPM</h4> 
                 <h4>Accuracy: {Math.round(((length-mistakes)/length)*100)}%</h4>
                 <div className="container col-sm-12 mt-5">
-                    <button onClick={(e) => {handleClick(e, true)}} className="btn btn-outline-secondary text-white form-control">
-                        Overview.
-                    </button>
+                    { checkAuth() && <button onClick={(e) => {handleClick(e, true)}} className="btn btn-outline-secondary text-white form-control">Overview.</button> }
                     <button onClick={e => handleClick(e, false)} className="btn btn-outline-primary form-control">New Passage</button>
                 </div>
             </animated.div>
