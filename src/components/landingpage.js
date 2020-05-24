@@ -24,7 +24,9 @@ function LandingPage() {
                 <p className="lead">A place to practice your typing skills.</p>
                 <p className="lead">Sign up or log in to keep track of your progress and see global statistics.</p>
                 <hr className="my-4"></hr>
-                <button className="btn btn-outline-success float-right" onClick={(e) => handleClick(e)}>Practice your typing.</button>
+                <div className="text-center">
+                    <button className="btn btn-outline-success" onClick={(e) => handleClick(e)}>Practice your typing.</button>
+                </div>
             </div> :
             <Console /> }
         </div>

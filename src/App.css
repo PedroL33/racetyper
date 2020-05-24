@@ -24,3 +24,7 @@
 .nav-tabs > .active {
   background-color: #00bc8c;
 }
+
+.nav-link {
+  padding: 10px;
+}
