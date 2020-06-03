@@ -18,14 +18,37 @@ function LandingPage() {
         <div>
             <Nav isLogged = {false} />
             { !isActive ? 
-            <div className="jumbotron mt-5">
-                <h1 className="display-4">Racetyper</h1>
-                <hr className="my-4"></hr>
-                <p className="lead">A place to practice your typing skills.</p>
-                <p className="lead">Sign up or log in to keep track of your progress and see global statistics.</p>
-                <hr className="my-4"></hr>
-                <div className="text-center">
-                    <button className="btn btn-outline-success" onClick={(e) => handleClick(e)}>Practice your typing.</button>
+            <div className="landing-container" style={{backgroundImage: `url(${window.location + "/images/landingBackground.jpg"})`}}>
+                <div className="welcome">
+                    <div className="welcome-message">
+                        A place to practice your typing skills.
+                    </div>
+                    <button className="welcome-button" onClick={(e) => handleClick(e)}>Practice your typing.</button>
+                </div>
+                <div>
+                    <div className="about row">
+                        <div className="col-md-3 about-title">
+                            <h2>What you can do...</h2>
+                        </div>
+                        <div className="col-md-3 about-item-container">
+                            <div className="about-item">
+                                <i class="far fa-keyboard about-item-icon"></i>
+                                <div className="about-item-desc">Practice by typing motivational quotes and view results in words per minute and accuracy.</div>
+                            </div> 
+                        </div>
+                        <div className="col-md-3 about-item-container">
+                            <div className="about-item">
+                                <i class="fas fa-chart-line about-item-icon"></i>
+                                <div className="about-item-desc">Signup or login to keep track of your progress and view global leaderboard.</div>
+                            </div> 
+                        </div>
+                        <div className="col-md-3 about-item-container">
+                            <div className="about-item">
+                                <i class="fas fa-user-friends about-item-icon"></i>
+                                <div className="about-item-desc">Coming soon: Challenge others to a tying race to see who is the better typist.</div>
+                            </div> 
+                        </div>
+                    </div>
                 </div>
             </div> :
             <Console /> }

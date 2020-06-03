@@ -12,11 +12,10 @@ function GlobalTab() {
     const avgAcc = Math.round(allScores.success && allScores.payload.length ? Object.values(allScores.payload).reduce((t, {accuracy}) => t+accuracy, 0)/allScores.payload.length : 0)
 
     return (
-        <div className="container">
-            <div className="row justify-content-center bg-primary"><h2 className="my-3">Globals Stats:</h2></div>
-            <div className="row">
-                <div className="col-xl-6">
-                    <h4 className="row py-4 justify-content-center bg-secondary">Daily Leaderboard</h4>
+        <div className="overview-tab">
+            <div className="row global-body">
+                <div className="col-md-8 global-leaderboard">
+                    <h4 className="row py-4 justify-content-center">Daily Leaderboard</h4>
                     <div className="row">
                         <div className="col text-center">Speed</div>
                         <div className="col text-center">Username</div>
@@ -26,18 +25,18 @@ function GlobalTab() {
                     <div className="row">
                         <div className="col text-center">{item.wpm}</div>
                         <div className="col text-center">{item["user_id"]["username"]}</div>
-                        <div className="col text-center">{moment(item["played_at"]).fromNow()}</div>
+                        <div className="col text-center time-text">{moment(item["played_at"]).fromNow()}</div>
                     </div>) : <div>No data yet...</div>}
                 </div>
-                <div className="col-xl-6">
-                    <h4 className="row justify-content-center bg-secondary py-4">All time Fastest</h4>
-                    {topScore.wpm ? <h4 className="row justify-content-center my-3">{topScore.wpm}</h4> : <div>No data yet...</div>}
-                    {topScore.accuracy && <p className="row justify-content-center">Accuracy: {topScore.accuracy}</p>}
-                    {topScore.username && <p className="row justify-content-center">By: {t(topScore, 'user_id.username').safeObject}</p>}
+                <div className="col-md-4 global-alltime">
+                    <h4 className="row">All time Fastest</h4>
+                    {topScore.wpm ? <h4 className="row global-top-score">{topScore.wpm}</h4> : <div>No data yet...</div>}
+                    {topScore.accuracy && <p className="row">Accuracy: {topScore.accuracy}</p>}
+                    {topScore.username && <p className="row">By: {t(topScore, 'user_id.username').safeObject}</p>}
                 </div>
             </div>
-            <div className="row bg-primary justify-content-center">
-                <p className="my-5 col-md-8">Out of {allScores.success ? allScores.payload.length : 0} games played, our users on average type {avg} WPM with an accuary of {avgAcc}%.</p>
+            <div className="row global-footer">
+                <p>Out of {allScores.success ? allScores.payload.length : 0} games played, our users on average type {avg} WPM with an accuary of {avgAcc}%.</p>
             </div>
         </div>
     )

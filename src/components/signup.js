@@ -59,23 +59,21 @@ function Signup() {
     return(
         <div>
             <Nav />
-            <div className="container col-md-4 mt-5">
-                <h3>Signup:</h3>
-                <label>Username:</label>
-                {errors["username"] && <div className="d-inline text-warning">&nbsp;({  errors["username"]})</div>}
-                <input type="text" placeholder="Username" className={errors["username"] ? "is-invalid form-control mb-2" : "form-control mb-2"} onChange={(e) => {setUsername(e.target.value)}} />
-                <label>Password:</label>
-                {errors["password"] && <div className="d-inline text-warning">&nbsp;({  errors["password"]})</div>}
-                <input type="password" placeholder="Password" className={errors["password"] ? "is-invalid form-control mb-2" : "form-control mb-2"} onChange={(e) => {setPassword(e.target.value)}}/>
-                <label>Confirm Password:</label>
-                {errors["confirm"] && <div className="d-inline text-warning">&nbsp;({  errors["confirm"]})</div>}
-                <input type="password" placeholder="Confirm" className={errors["confirm"] ? "is-invalid form-control mb-2" : "form-control mb-2"} onChange={(e) => {setConfirm(e.target.value)}}/>
-                <label>Email:</label>
-                {errors["email"] && <div className="d-inline text-warning">&nbsp;({  errors["email"]})</div>}
-                <input type="text" placeholder="Email" className={errors["email"] ? "is-invalid form-control mb-2" : "form-control mb-2"} onChange={(e) => {setEmail(e.target.value)}}/>
-                <button className="btn btn-primary form-control mt-3" onClick={e => {signup(e)}} >
-                    Signup <i className="fas fa-pen"></i> 
-                </button>
+            <div className="signup-container">
+                <div className="signup-form">
+                    <h3>Signup:</h3>
+                    {errors["username"] && <div className="text-warning">&nbsp;({  errors["username"]})</div>}
+                    <input type="text" placeholder="Username" className={errors["username"] ? "is-invalid form-control mb-2" : "form-control mb-2"} onChange={(e) => {setUsername(e.target.value)}} />
+                    {errors["password"] && <div className="text-warning">&nbsp;({  errors["password"]})</div>}
+                    <input type="password" placeholder="Password" className={errors["password"] ? "is-invalid form-control mb-2" : "form-control mb-2"} onChange={(e) => {setPassword(e.target.value)}}/>
+                    {errors["confirm"] && <div className="text-warning">&nbsp;({  errors["confirm"]})</div>}
+                    <input type="password" placeholder="Confirm" className={errors["confirm"] ? "is-invalid form-control mb-2" : "form-control mb-2"} onChange={(e) => {setConfirm(e.target.value)}}/>
+                    {errors["email"] && <div className="text-warning">&nbsp;({  errors["email"]})</div>}
+                    <input type="text" placeholder="Email" className={errors["email"] ? "is-invalid form-control mb-2" : "form-control mb-2"} onChange={(e) => {setEmail(e.target.value)}}/>
+                    <button className="btn btn-primary form-control mt-3" onClick={e => {signup(e)}} >
+                        Signup <i className="fas fa-pen"></i> 
+                    </button>
+                </div>
             </div>
         </div>
     )

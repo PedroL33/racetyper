@@ -17,27 +17,29 @@ export default function HistoryTab() {
     var endIndex = page*10>scores.length ? scores.length : page*10;
 
     return (
-        <div className="container-fluid">
-            <div className="row bg-primary">
+        <div className="overview-tab">
+            <div className="row history-header">
                 <div className="col">Speed(WPM)</div>
                 <div className="col">Accuracy</div>
                 <div className="col">Date</div>
             </div>
+            <div className="history-body">
             {scores.slice(startIndex, endIndex).map(element => 
                 <div>
                     <div className="row">
-                        <div className="col">{element.wpm}</div>
-                        <div className="col">{element.accuracy}</div>
-                        <div className="col">{moment(element.played_at).fromNow()}</div>
+                        <div className="col text-center">{element.wpm}</div>
+                        <div className="col text-center">{element.accuracy}</div>
+                        <div className="col text-center time-text">{moment(element.played_at).fromNow()}</div>
                     </div>
                 </div>
             )}
-            <nav aria-label="...">
-                <ul className="pagination justify-content-center">
+            </div>
+            <nav aria-label="..." className="history-footer">
+                <ul className="pagination">
                     {pageNumbers.map(element => 
                         <div>
                             <li className="page-item" onClick={()=> {setPage(element)}}>
-                                <button className="page-link bg-primary">{element}</button>
+                                <button className="page-link">{element}</button>
                             </li>
                         </div>
                     )}

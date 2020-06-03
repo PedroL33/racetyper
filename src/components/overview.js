@@ -12,24 +12,26 @@ function Overview() {
         const [key, setKey] = useState('profile');
         
         return (
-            <Tabs activeKey={key} onSelect={k => setKey(k)}>
-                <Tab eventKey="profile" title="Profile">
-                    <ProfileTab />
-                </Tab>
-                <Tab eventKey="history" title="History">
-                    <HistoryTab />
-                </Tab>
-                <Tab eventKey="global" title="Global">
-                    <GlobalTab />
-                </Tab>
-            </Tabs>
+            <div className="overview-container">
+                <div className="overview">
+                    <Tabs activeKey={key} onSelect={k => setKey(k)}>
+                        <Tab eventKey="profile" title="Profile">
+                            <ProfileTab />
+                        </Tab>
+                        <Tab eventKey="history" title="History">
+                            <HistoryTab />
+                        </Tab>
+                        <Tab eventKey="global" title="Global">
+                            <GlobalTab />
+                        </Tab>
+                    </Tabs>
+                </div>
+            </div>
         );
     }
 
     return(
-        <div className="container col-md-8 mt-5">
-            <ControlledTabs />
-        </div>
+        <ControlledTabs />
     )
 }
 

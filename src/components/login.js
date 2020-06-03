@@ -32,16 +32,16 @@ function Login() {
     return(
         <div>
             <Nav />
-            <div className="container col-md-4 mt-5">
-                <h3>Login:</h3>
-                <label>Username:</label>
-                {loginStatus.error && <div className="d-inline text-warning ml-auto">&nbsp; ({loginStatus.error})</div>}
-                <input type="text" placeholder="Username" onChange={(e) => {setUsername(e.target.value) }} className={loginStatus.error ? "is-invalid form-control mb-2" : "form-control mb-2"} />
-                <label>Password:</label>
-                <input type="password" placeholder="Password" onChange={(e) => {setPassword(e.target.value)}} className={loginStatus.error ? "is-invalid form-control mb-2" : "form-control mb-2"} />
-                <button onClick={e => {login(e)}} className="btn btn-primary form-control mt-5 mb-5">
-                    <i className="fas fa-lock"></i> Login  
-                </button>
+            <div className="login-container">
+                <div className="login-form">
+                    <h3>Login</h3>
+                    {loginStatus.error && <div className="text-warning ml-auto">&nbsp; ({loginStatus.error})</div>}
+                    <input type="text" placeholder="Username" onChange={(e) => {setUsername(e.target.value) }} className={loginStatus.error ? "is-invalid form-control mb-2" : "form-control mb-2"} />
+                    <input type="password" placeholder="Password" onChange={(e) => {setPassword(e.target.value)}} className={loginStatus.error ? "is-invalid form-control mb-2" : "form-control mb-2"} />
+                    <button onClick={e => {login(e)}} className="btn btn-primary form-control">
+                        <i className="fas fa-lock"></i> Login  
+                    </button>
+                </div>
             </div>
         </div>
     )

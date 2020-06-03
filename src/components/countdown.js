@@ -16,7 +16,7 @@ const Countdown = () => {
 
     return(
         <div>
-            <h2>{countdown}</h2>
+            <div className="console-display"><div>{countdown}</div></div>
         </div>
     )
 }

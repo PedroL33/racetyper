@@ -18,15 +18,16 @@ const Console = () => {
     const passage = useSelector(state => state.passage)
     const playing = useSelector(state => state.isPlaying);
     const end = useSelector(state => state.end);
+    const start = useSelector(state => state.start)
 
-    const props = useSpring({opacity: 1, from: {opacity: 0}})
+    const props = useSpring({opacity: 1, from: {opacity: 0}, config: { duration: 2000 }})
 
     useEffect(() => {
         if(playing) {
             dispatch(actions.reset())
         }
     }, [playing])
-
+    console.log("hi")
     useEffect(() => {
         if(counter === 0) {
             inputRef.current.disabled = false;
@@ -84,12 +85,13 @@ const Console = () => {
     }
 
     return (
-        <div className="container col-md-8 mt-5 text-center">
-            <animated.div style={props} className="col-md-8 mx-auto">
-                { counter ? <Countdown /> :null }
+        <div className="console-container">
+            <animated.div style={props} className="typing-console">
+                { counter !== 0 && playing ? <Countdown /> : null }
+                { counter === 0 && playing ? <div className="console-display"><div>{Math.round(((correct.length)/5)/((end-start)/1000)*60)}</div></div> : null}
                 { playing ? <Display /> : <Results />}
 
-                <div id="input" class="mt-5 col-md-6 mx-auto">
+                <div id="input">
                     {playing && <input type="text" disabled="disabled" ref={inputRef} className="form-control" onKeyDown={handleKeydown} onKeyPress={handleKeyPress} value={current} onChange ={handleChange}/> }
                 </div>
             </animated.div>

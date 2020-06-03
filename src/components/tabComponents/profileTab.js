@@ -25,28 +25,28 @@ export default function ProfileTab() {
     }
 
     return (
-        <div className="container-fluid">
-            <div className="row bg-secondary">
-                <div className="my-2 ml-auto mr-3"><h2>{user.username}</h2></div>
+        <div className="overview-tab">
+            <div className="row h-25 profile-header">
+                <h2>{user.username}</h2>
             </div>
-            <div className="row">
-                <ul className="list-group list-group-flush col">
-                    <li className="list-group-item">
+            <div className="row h-50">
+                <ul className="col-md-6 h-100 profile-stats">
+                    <li className="">
                         Games played: <div className="float-right">{scores.payload && scores.payload.length ? scores["payload"].length : "No data..."}</div>
                     </li>
-                    <li className="list-group-item">
+                    <li className="">
                         Average Speed: <div className="float-right">{scores.payload && scores.payload.length ? avgWPM : "No data..."}</div>
                     </li>
-                    <li className="list-group-item">
+                    <li className="">
                         Average Accuracy: <div className="float-right">{scores.payload && scores.payload.length ? avgAccuracy : "No data..."}</div>
                     </li>
                 </ul>
-                <div className="col">
+                <div className="col-md-6 h-100 profile-stats">
                     <div className="text-center my-3">High Score</div>
                     {scores.success && scores.payload.length ? <h1 className="text-center my-3">{max.wpm} WPM!</h1> : <h4 className="text-center my-3">No data yet...</h4>}
                 </div>
             </div>
-            <div className="row">
+            <div className="row h-25 profile-footer">
                 <button onClick={(e)=>{handleClick(e)}} className="form-control btn btn-primary">Test you typing speed.</button>
             </div>
         </div>

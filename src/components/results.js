@@ -9,7 +9,7 @@ import checkAuth from '../authorization/checkAuth';
 
 const Results = () => {
 
-    const drop = useSpring({marginTop: 0, from: {marginTop: -400}}, {config: {duration: 3000}})
+    const drop = useSpring({opacity: 1, from: {opacity: 0}, config: {duration: 1000}})
     const length = useSelector(state => state.length)
     const start = useSelector(state => state.start)
     const end = useSelector(state => state.end)
@@ -39,16 +39,16 @@ const Results = () => {
     }
 
     return (
-        <div className="container mt-5">
-            <animated.div style={drop} className="col-md-12 mx-auto">
+        <animated.div style={drop} className="results">
+            <div>
                 <h4>Speed: {Math.round((length/5)/((end-start)/1000) * 60)} WPM</h4> 
                 <h4>Accuracy: {Math.round(((length-mistakes)/length)*100)}%</h4>
-                <div className="container col-sm-12 mt-5">
-                    { checkAuth() && <button onClick={(e) => {handleClick(e, true)}} className="btn btn-outline-secondary text-white form-control">Overview.</button> }
-                    <button onClick={e => handleClick(e, false)} className="btn btn-outline-primary form-control">New Passage</button>
-                </div>
-            </animated.div>
-        </div>
+            </div>
+            <div>
+                { checkAuth() && <button onClick={(e) => {handleClick(e, true)}} className="results-button">Overview.</button> }
+                <button onClick={e => handleClick(e, false)} className="results-button">New Passage</button>
+            </div>
+        </animated.div>
     )
 }
 

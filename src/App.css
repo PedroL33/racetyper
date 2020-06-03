@@ -1,3 +1,168 @@
+body {
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+/* Login and Signup Forms */
+.login-container, .signup-container {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form, .signup-form {
+  width: 300px;
+  height: 50%;
+  text-align: center;
+}
+
+.login-form h3, .signup-form h3 {
+  margin: 20px 0;
+}
+
+/* Overview */
+.overview-container {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.time-text {
+  font-size: 11px;
+}
+
+.overview {
+  width: 50%;
+  margin: auto;
+}
+
+.overview-tab {
+  height: 50vh;
+
+  border: none;
+}
+
+.tab-content {
+  background-color: #4f86f7;
+  border-radius: 20px;
+  color: white;
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-tabs .nav-link {
+  border-radius: 10px 10px 0 0;
+  background-color: #4f86f7;
+  color: white;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: white;
+  color: #4f86f7;
+  border: 1px solid #4f86f7
+}
+
+  /* overview profile tab */
+
+.profile-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.profile-stats li {
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.profile-header, .profile-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-footer button {
+  width: 50%;
+  border-radius: 30px;
+  background-color: white;
+  color: #4f86f7;
+}
+
+  /* overview history tab */
+.history-header {
+  height: 15%;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid white;
+}
+
+.history-body {
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-bottom: 1px solid white;
+}
+
+.history-footer {
+  height: 10%;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-link {
+  background-color: #4f86f7;
+  border: none; 
+  color: white;
+}
+
+  /* overview global tab */ 
+.global-leaderboard {
+  border-right: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.global-body {
+  height: 75%;
+}
+
+.global-alltime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.global-top-score {
+  font-size: 72px;
+}
+
+.global-footer {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  height: 25%;
+  border-top: 1px solid white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* game console */
 #correct {
   color: lightgrey;
   white-space: pre-wrap;
@@ -13,18 +178,212 @@
   white-space: pre-wrap;
 }
 
-.nav-tabs {
+.typing-console {
+  width: 100%;
+  height: 70%;
+  border-radius: 40px;
+  background-color: #4f86f7;
+  color: white;
+  margin: auto;
   display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 50px;
+}
+
+.console-container {
+  width: 40%;
+  height: 80vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  text-align: center;
+}
+
+.console-passage {
+  font-size: 20px;
+  text-align: left;
+  width: 80%;
+  margin: auto;
+}
+
+.console-display {
+  font-size: 48px;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 50%;
+  color: #4f86f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.results-button:hover {
+  color: #4f86f7;
+  background-color: white;
+  cursor: pointer;
+}
+
+.results-button {
+  color: white;
+  background-color: #4f86f7;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 10px 30px;
+}
+
+/* navbar */
+.navbar {
+  height: 10vh;
+  position: relative;
+}
+
+.icon-wrapper {
+  font-size: 32px;
+  color: rgb(0, 217, 255);
+  transform: rotateY(180deg);
+}
+
+.icon-wrapper:hover .running-icon {
+  transition: 0.9s;
+  transform: rotateY(180deg);
+  cursor: pointer;
+  color: #4f86f7;
+}
+
+/* landing page */
+
+.landing-container {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.welcome {
+  height: 50vh;
+  width: 50%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  padding: 2px;
 }
 
-.nav-tabs > .active {
-  background-color: #00bc8c;
+.about {
+  height: 40vh;
+  width: 90%;
+  margin: auto;
 }
 
-.nav-link {
-  padding: 10px;
+.about-title {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.about-item {
+  color: white;
+  text-align: center;
+  color: white;
+}
+
+.about-item-icon {
+  font-size: 72px;
+  margin-bottom: 20px;
+}
+
+.about-item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-item-desc {
+  font-size: 18px;
+}
+
+.welcome-message {
+  font-size: 4vw;
+  text-align: center;
+  color: white;
+}
+
+.welcome-button {
+  margin-top: 30px;
+  padding: 10px 30px;
+  border-radius: 30px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.welcome-button:hover {
+  background-color: white;
+  color: rgb(0, 217, 255);
+  cursor: pointer;
+}
+
+.footer {
+  font-size: 11px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  color: grey;
+}
+
+@media only screen and (max-width: 600px) {
+  .console-container {
+    width: 300px;
+  }
+  .about {
+    height: auto;
+  }
+  .about-item {
+    padding: 20px 0;
+  }
+  .welcome-message {
+    font-size: 36px;
+  }
+  .welcome {
+    width: 90%;
+  }
+  .overview-container {
+    height: auto;
+    min-height: 80vh;
+  }
+  .overview {
+    width: 95%;
+  }
+  
+  .overview-tab {
+    min-height: 50vh;
+    height: auto;
+    padding: 10px;
+  }
+  .global-leaderboard {
+    border-right: none;
+  }
+  .global-alltime {
+    border-top: 1px solid white;
+    padding-top: 10px;
+  }
+  .console-container {
+    width: 95%;
+  }
+  .console-passage {
+    width: 100%;
+  }
 }

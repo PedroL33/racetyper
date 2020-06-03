@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import Footer from './components/footer'
 import Dashboard from './components/dashboard';
 import Login from './components/login';
 import Signup from './components/signup';
@@ -18,6 +18,7 @@ function App() {
           <ProtectedRoute path="/" component={Dashboard} />
         </Switch>
       </Router>
+      <Footer />
     </div>
   );
 }
