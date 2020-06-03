@@ -1,3 +1,13 @@
+A clone of type racer an educational typing app.  
+
+Users can create an account to keep track of scores, or simply practice typing without an account.
+
+Live version can be viewed at (https://race-typer.com)
+
+Server side code can be viewed at (https://github.com/PedroL33/racetyper_backend)   
+
+Any suggestions or comments can be sent to me at leepeter019@gmail.com.  
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
