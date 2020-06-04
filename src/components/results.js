@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
 import { useSpring, animated } from 'react-spring';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleActive, togglePlaying, choosePassage, resetCorrect, resetIncorrect, resetCountdown, resetMistakes } from '../actions/index';
+import { toggleActive, togglePlaying, resetCorrect, resetIncorrect, resetCountdown, resetMistakes } from '../actions/index';
 import postScores from '../apiCalls/postScores';
 import getScores from '../apiCalls/getScores';
 import getAllScores from '../apiCalls/getAllScores';
 import checkAuth from '../authorization/checkAuth';
+import getPassages from '../apiCalls/getPassages';
 
 const Results = () => {
 
@@ -14,7 +15,6 @@ const Results = () => {
     const start = useSelector(state => state.start)
     const end = useSelector(state => state.end)
     const mistakes = useSelector(state => state.mistakes)
-    const passages = useSelector(state => state.passages)
     const dispatch = useDispatch()
 
     useEffect(()=> {
@@ -29,8 +29,7 @@ const Results = () => {
             dispatch(getScores())
             dispatch(getAllScores())
         }
-        var index = Math.floor(Math.random() * 723)
-        dispatch(choosePassage(passages[index].text))
+        dispatch(getPassages())
         dispatch(resetCorrect())
         dispatch(resetIncorrect())
         dispatch(resetCountdown())

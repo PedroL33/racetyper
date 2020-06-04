@@ -90,6 +90,12 @@ body {
 .profile-footer button {
   width: 50%;
   border-radius: 30px;
+  background-color: #4f86f7;
+  color: white;
+  border: 1px solid white;
+}
+
+.profile-footer button:hover {
   background-color: white;
   color: #4f86f7;
 }
@@ -134,7 +140,13 @@ body {
   border-right: 1px solid white;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+}
+
+.global-leaderboard-data {
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: space-between;
 }
 
 .global-body {
@@ -262,6 +274,10 @@ body {
   color: #4f86f7;
 }
 
+.logout-button:hover {
+  cursor: pointer;
+} 
+
 /* landing page */
 
 .landing-container {
@@ -347,6 +363,11 @@ body {
 @media only screen and (max-width: 600px) {
   .console-container {
     width: 300px;
+    height: auto;
+    min-height: 80vh;
+  }
+  .console-passage {
+    margin: 20px 0;
   }
   .about {
     height: auto;

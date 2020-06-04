@@ -27,7 +27,6 @@ const Console = () => {
             dispatch(actions.reset())
         }
     }, [playing])
-    console.log("hi")
     useEffect(() => {
         if(counter === 0) {
             inputRef.current.disabled = false;

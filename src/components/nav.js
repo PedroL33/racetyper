@@ -5,17 +5,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import checkAuth from '../authorization/checkAuth';
 import getScores from '../apiCalls/getScores';
 import getAllScores from '../apiCalls/getAllScores';
+import getPassages from '../apiCalls/getPassages';
 
 function Nav(props) {
     const history = useHistory();
     const dispatch = useDispatch();
     const isActive = useSelector(state => state.isActive);
     const isPlaying = useSelector(state => state.isPlaying);
-    const passages = useSelector(state => state.passages);
 
     function clearConsole() {
-        var index = Math.floor(Math.random() * 723)
-        dispatch(choosePassage(passages[index].text))
         dispatch(resetCorrect())
         dispatch(resetIncorrect())
         dispatch(resetCountdown())
@@ -31,6 +29,9 @@ function Nav(props) {
     }
 
     function handleClick() {
+        if(!isActive) {
+            dispatch(getPassages())
+        }
         dispatch(toggleActive())
         clearConsole()
         if(!isPlaying) {
@@ -62,7 +63,7 @@ function Nav(props) {
                     </div> 
                 }   
                 { props.isLogged && 
-                    <div className="nav-item ml-auto">
+                    <div className="nav-item logout-button">
                         <div className="nav-link text-warning" onClick={()=>{logout()}}>Logout</div>
                     </div>
                 }  

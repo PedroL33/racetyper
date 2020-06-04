@@ -21,12 +21,14 @@ function GlobalTab() {
                         <div className="col text-center">Username</div>
                         <div className="col text-center">Played At</div>
                     </div>
-                    {topThisWeek.length ? topThisWeek.map(item => 
-                    <div className="row">
-                        <div className="col text-center">{item.wpm}</div>
-                        <div className="col text-center">{item["user_id"]["username"]}</div>
-                        <div className="col text-center time-text">{moment(item["played_at"]).fromNow()}</div>
-                    </div>) : <div>No data yet...</div>}
+                    <div className="row global-leaderboard-data">
+                        {topThisWeek.length ? topThisWeek.map(item => 
+                        <div className="row">
+                            <div className="col text-center">{item.wpm}</div>
+                            <div className="col text-center">{item["user_id"]["username"]}</div>
+                            <div className="col text-center time-text">{moment(item["played_at"]).fromNow()}</div>
+                        </div>) : <div className="mt-5 text-center">No data yet...</div>}
+                    </div>
                 </div>
                 <div className="col-md-4 global-alltime">
                     <h4 className="row">All time Fastest</h4>

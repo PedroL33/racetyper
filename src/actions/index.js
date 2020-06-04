@@ -41,26 +41,6 @@ export const resetCountdown = () => {
     }
 }
 
-export const fetchPassagesStart = () => {
-    return {
-        type: "FETCH_PASSAGES_START",
-    }
-}
-
-export const fetchPassagesSuccess = (passages) => {
-    return {
-        type: "FETCH_PASSAGES_SUCCESS",
-        payload: passages
-    }
-}
-
-export const fetchPassagesError = (error) => {
-    return {
-        type: "FETCH_PASSAGES_ERROR",
-        payload: error
-    }
-}
-
 export const getScoresStart = () => {
     return {
         type: "GET_SCORES_START"

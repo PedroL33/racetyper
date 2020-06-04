@@ -24,7 +24,7 @@ export default function HistoryTab() {
                 <div className="col">Date</div>
             </div>
             <div className="history-body">
-            {scores.slice(startIndex, endIndex).map(element => 
+            {scores.length ? scores.slice(startIndex, endIndex).map(element => 
                 <div>
                     <div className="row">
                         <div className="col text-center">{element.wpm}</div>
@@ -32,7 +32,7 @@ export default function HistoryTab() {
                         <div className="col text-center time-text">{moment(element.played_at).fromNow()}</div>
                     </div>
                 </div>
-            )}
+            ) : <div className="text-center">Looks like you havent played any games or our database is having trouble.</div>}
             </div>
             <nav aria-label="..." className="history-footer">
                 <ul className="pagination">

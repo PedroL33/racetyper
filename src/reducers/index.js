@@ -2,7 +2,6 @@ import currentReducer from './current';
 import countdownReducer from './countdown';
 import isActiveReducer from './isActive';
 import isPlayingReducer from './isPlaying';
-import passagesReducer from './passages';
 import passageReducer from './passage';
 import incorrectReducer from './incorrect';
 import correctReducer from './correct';
@@ -22,7 +21,6 @@ const allReducers = combineReducers({
     countdown: countdownReducer,
     isActive: isActiveReducer,
     isPlaying: isPlayingReducer,
-    passages: passagesReducer,
     passage: passageReducer,
     incorrect: incorrectReducer,
     correct: correctReducer,

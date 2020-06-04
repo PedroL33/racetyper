@@ -3,17 +3,17 @@ import Nav from './nav';
 import Console from './console';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleActive, togglePlaying } from '../actions/index';
-
+import getPassages from '../apiCalls/getPassages';
 function LandingPage() {
     const isActive = useSelector(state => state.isActive);
     const dispatch = useDispatch();
 
     function handleClick(e) {
-        e.preventDefault();
+        dispatch(getPassages())
         dispatch(toggleActive());
         dispatch(togglePlaying());
     }
-    
+    console.log("hi")
     return(
         <div>
             <Nav isLogged = {false} />
