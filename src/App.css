@@ -291,7 +291,7 @@ body {
   margin: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 }
 
@@ -331,12 +331,13 @@ body {
 
 .welcome-message {
   font-size: 4vw;
+  margin: 20px;
   text-align: center;
   color: white;
 }
 
 .welcome-button {
-  margin-top: 30px;
+  margin: 30px 0;
   padding: 10px 30px;
   border-radius: 30px;
   background-color: transparent;
