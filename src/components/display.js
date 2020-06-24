@@ -11,6 +11,7 @@ const Display = () => {
     return (
         <div>
             <animated.div style={fade} className="console-passage">
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 <span id="correct">{ correct }</span>
                 <span id="incorrect">{ incorrect }</span>
                 <span id="passage">{ passage }</span>
